@@ -8,3 +8,6 @@ rows, cols = img.shape[:2]
 
 res = cv.resize(img, None, fx=2, fy=2, interpolation=cv.INTER_CUBIC)
 cv.imshow('scaling',res)
+M2 = cv.getRotationMatrix2D(((cols-1)/2.0,(rows-1)/2.0),90,1)
+dst2 = cv.warpAffine(img,M2,(cols,rows))
+cv.imshow('rotated', dst2)
